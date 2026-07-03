@@ -36,7 +36,7 @@ export default function LoadingScreen() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <Logo iconClassName="h-10 w-auto" textClassName="text-3xl md:text-4xl font-bold tracking-tight" />
+              <Logo iconClassName="h-[46px] w-auto" textClassName="text-3xl md:text-4xl font-bold tracking-tight" />
             </motion.div>
 
             <motion.p

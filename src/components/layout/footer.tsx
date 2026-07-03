@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="flex flex-col space-y-4 md:col-span-2">
           <Link href="/" className="flex items-center focus-ring rounded p-1 w-max">
-            <Logo iconClassName="h-7 w-auto" textClassName="text-xl font-bold tracking-tight" />
+            <Logo iconClassName="h-[32px] w-auto" textClassName="text-xl font-bold tracking-tight" />
           </Link>
           <p className="text-sm text-brand-muted max-w-sm">
             AkoStack is a secure enterprise AI knowledge platform that transforms scattered organizational knowledge into grounded, citation-backed AI answers.

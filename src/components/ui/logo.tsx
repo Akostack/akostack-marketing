@@ -10,7 +10,7 @@ interface LogoProps {
 
 export default function Logo({
   className = "flex items-center",
-  iconClassName = "h-7 w-auto",
+  iconClassName = "h-[32px] w-auto",
 }: LogoProps) {
   return (
     <div className={className}>

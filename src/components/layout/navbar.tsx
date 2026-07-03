@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center focus-ring rounded p-1">
-          <Logo iconClassName="h-7 w-auto" textClassName="text-xl font-bold tracking-tight" />
+          <Logo iconClassName="h-[32px] w-auto" textClassName="text-xl font-bold tracking-tight" />
         </Link>
 
         {/* Desktop Nav Links */}
