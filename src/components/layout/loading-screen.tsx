@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import Logo from "@/components/ui/logo";
 
 export default function LoadingScreen() {
   const shouldReduceMotion = useReducedMotion();
@@ -30,14 +31,13 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white"
         >
           <div className="text-center space-y-4">
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="font-sans font-bold text-3xl md:text-4xl tracking-tighter text-brand-text"
             >
-              AKO<span className="font-normal text-brand-muted">Stack</span>
-            </motion.h1>
+              <Logo iconClassName="h-10 w-auto" textClassName="text-3xl md:text-4xl font-bold tracking-tight" />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}

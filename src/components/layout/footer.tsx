@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Logo from "@/components/ui/logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,20 +24,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
         {/* Brand Column */}
         <div className="flex flex-col space-y-4 md:col-span-2">
-          <Link href="/" className="flex items-center space-x-2 focus-ring rounded p-1 w-max">
-            <span className="font-sans font-bold text-xl tracking-tighter text-brand-text">
-              AKO<span className="font-normal text-brand-muted">Stack</span>
-            </span>
+          <Link href="/" className="flex items-center focus-ring rounded p-1 w-max">
+            <Logo iconClassName="h-7 w-auto" textClassName="text-xl font-bold tracking-tight" />
           </Link>
           <p className="text-sm text-brand-muted max-w-sm">
-            AKOStack is a secure enterprise AI knowledge platform that transforms scattered organizational knowledge into grounded, citation-backed AI answers.
+            AkoStack is a secure enterprise AI knowledge platform that transforms scattered organizational knowledge into grounded, citation-backed AI answers.
           </p>
           <div className="flex items-center space-x-4 pt-2">
             <a
-              href="https://github.com"
+              href="https://github.com/Akostack"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AKOStack GitHub Profile"
+              aria-label="AkoStack GitHub Profile"
               className="text-brand-muted hover:text-brand-text transition-colors duration-200 focus-ring rounded p-1"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -44,10 +43,10 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/akostack/about/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AKOStack LinkedIn Profile"
+              aria-label="AkoStack LinkedIn Profile"
               className="text-brand-muted hover:text-brand-text transition-colors duration-200 focus-ring rounded p-1"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,10 +54,10 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/akostack"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AKOStack Instagram Profile"
+              aria-label="AkoStack Instagram Profile"
               className="text-brand-muted hover:text-brand-text transition-colors duration-200 focus-ring rounded p-1"
             >
               <svg className="h-5 w-5 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">

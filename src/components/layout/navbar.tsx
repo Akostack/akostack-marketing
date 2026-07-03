@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import Logo from "@/components/ui/logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("/#")) {
+    if (href.startsWith("/#") && typeof window !== "undefined" && window.location.pathname === "/") {
       e.preventDefault();
       const targetId = href.replace("/#", "");
       const elem = document.getElementById(targetId);
@@ -31,6 +32,8 @@ export default function Navbar() {
         elem.scrollIntoView({ behavior: "smooth" });
         setIsOpen(false);
       }
+    } else {
+      setIsOpen(false);
     }
   };
 
@@ -45,10 +48,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 focus-ring rounded p-1">
-          <span className="font-sans font-bold text-xl tracking-tighter text-brand-text flex items-center">
-            AKO<span className="font-normal text-brand-muted">Stack</span>
-          </span>
+        <Link href="/" className="flex items-center focus-ring rounded p-1">
+          <Logo iconClassName="h-7 w-auto" textClassName="text-xl font-bold tracking-tight" />
         </Link>
 
         {/* Desktop Nav Links */}

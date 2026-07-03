@@ -41,16 +41,8 @@ export class WaitlistService {
     }
 
     try {
-      // 4. Retrieve queue size for position index (fallback to base offset 100)
-      const { count, error: countError } = await supabase
-        .from("waitlist")
-        .select("*", { count: "exact", head: true });
-      
-      const currentCount = countError ? 0 : (count || 0);
-      const position = 101 + currentCount;
-
-      // 5. Insert record into PostgreSQL database
-      const { error: insertError } = await supabase
+      // 4. Insert record into PostgreSQL database and select auto-incremented queue_number
+      const { data: insertedRow, error: insertError } = await supabase
         .from("waitlist")
         .insert([
           {
@@ -60,7 +52,9 @@ export class WaitlistService {
             company_size: data.companySize,
             created_from: "landing-page",
           },
-        ]);
+        ])
+        .select("queue_number")
+        .single();
 
       if (insertError) {
         // Detect Postgres unique constraint violation (code 23505)
@@ -76,6 +70,8 @@ export class WaitlistService {
           message: insertError.message || "Failed to insert waitlist record.",
         };
       }
+
+      const position = insertedRow?.queue_number || 101;
 
       return {
         success: true,

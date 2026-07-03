@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AKOStack | Secure Enterprise AI Knowledge Platform",
-  description: "AKOStack transforms scattered enterprise knowledge into secure, grounded AI answers using semantic search, intelligent retrieval, enterprise-grade security, and source citations.",
+  title: "AkoStack | Secure Enterprise AI Knowledge Platform",
+  description: "AkoStack transforms scattered enterprise knowledge into secure, grounded AI answers using semantic search, intelligent retrieval, enterprise-grade security, and source citations.",
   keywords: [
     "Enterprise AI",
     "Retrieval-Augmented Generation",
@@ -24,22 +24,22 @@ export const metadata: Metadata = {
     "Secure AI",
     "Workspace Isolation"
   ],
-  authors: [{ name: "AKOStack Team", url: "https://akostack.com" }],
+  authors: [{ name: "AkoStack Team", url: "https://akostack.com" }],
   metadataBase: new URL("https://akostack.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AKOStack | Secure Enterprise AI Knowledge Platform",
+    title: "AkoStack | Secure Enterprise AI Knowledge Platform",
     description: "Transform scattered enterprise knowledge into secure, grounded AI answers with enterprise-grade security and source citations.",
     url: "https://akostack.com",
-    siteName: "AKOStack",
+    siteName: "AkoStack",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AKOStack - From Chaos to Clarity",
+        alt: "AkoStack - From Chaos to Clarity",
       },
     ],
     locale: "en_US",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AKOStack | Secure Enterprise AI Knowledge Platform",
+    title: "AkoStack | Secure Enterprise AI Knowledge Platform",
     description: "Transform scattered enterprise knowledge into secure, grounded AI answers with enterprise-grade security and source citations.",
     images: ["/og-image.png"],
     creator: "@akostack",

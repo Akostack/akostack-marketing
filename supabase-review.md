@@ -6,9 +6,10 @@ This document summarizes the final implementation and verification results of th
 
 ## 1. Refinements Applied
 
-The waitlist backend migration has been completed incorporating your two final design refinements:
+The waitlist backend migration has been completed incorporating your design refinements:
 1. **Service Role Key Removal:** The `SUPABASE_SERVICE_ROLE_KEY` has been completely removed from both `.env.local` and `.env.local.example`. Only the public-safe `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` variables remain, securing the frontend from secret key exposure.
 2. **PostgreSQL Trigger:** An automatic PostgreSQL function `update_updated_at_column` and a trigger `update_waitlist_updated_at` have been added to the SQL editor script to automatically maintain the `updated_at` timestamps whenever records are modified.
+3. **Database-backed Queue Positions:** The queue position is no longer calculated via client-side code count queries. We integrated a `queue_number SERIAL PRIMARY KEY` sequence starting at `101` in the database, retrieving the exact registration spot in real time on insert.
 
 ---
 

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "AKOStack - From Chaos to Clarity";
+export const alt = "AkoStack - From Chaos to Clarity";
 export const size = {
   width: 1200,
   height: 630,
@@ -28,7 +28,7 @@ export default function Image() {
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           {/* Logo */}
           <div style={{ display: "flex", fontWeight: 900, fontSize: 88, letterSpacing: "-0.05em" }}>
-            <span style={{ color: "#111111" }}>AKO</span>
+            <span style={{ color: "#111111" }}>Ako</span>
             <span style={{ fontWeight: 400, color: "#4b5563" }}>Stack</span>
           </div>
           {/* Tagline */}

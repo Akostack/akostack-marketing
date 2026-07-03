@@ -9,9 +9,10 @@ This document provides step-by-step instructions to configure a Supabase Postgre
 Copy and paste the following SQL script directly into the **Supabase SQL Editor** and click **Run**:
 
 ```sql
--- 1. Create the waitlist table
+-- 1. Create the waitlist table with serial queue number
 CREATE TABLE IF NOT EXISTS public.waitlist (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    id UUID UNIQUE DEFAULT gen_random_uuid(),
+    queue_number SERIAL PRIMARY KEY,
     full_name TEXT NOT NULL,
     company TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
@@ -22,10 +23,13 @@ CREATE TABLE IF NOT EXISTS public.waitlist (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- 2. Create index on the email column for duplicate check performance
+-- 2. Restart waitlist queue number sequence at 101
+ALTER SEQUENCE IF EXISTS public.waitlist_queue_number_seq RESTART WITH 101;
+
+-- 3. Create index on the email column for duplicate check performance
 CREATE INDEX IF NOT EXISTS idx_waitlist_email ON public.waitlist (email);
 
--- 3. Create helper function to update updated_at column automatically
+-- 4. Create helper function to update updated_at column automatically
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -34,16 +38,16 @@ BEGIN
 END;
 $$ language 'plpgsql';
 
--- 4. Create trigger to automatically maintain updated_at on modify
+-- 5. Create trigger to automatically maintain updated_at on modify
 CREATE OR REPLACE TRIGGER update_waitlist_updated_at
     BEFORE UPDATE ON public.waitlist
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
--- 5. Enable Row Level Security (RLS) on the table
+-- 6. Enable Row Level Security (RLS) on the table
 ALTER TABLE public.waitlist ENABLE ROW LEVEL SECURITY;
 
--- 6. Create INSERT policy for anonymous users (Frontend Form Submissions)
+-- 7. Create INSERT policy for anonymous users (Frontend Form Submissions)
 CREATE POLICY "Allow public insert to waitlist" 
 ON public.waitlist 
 FOR INSERT 
